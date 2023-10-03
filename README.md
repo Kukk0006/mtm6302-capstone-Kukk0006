@@ -11,3 +11,10 @@ The fonts I chose is Exo for the main font.  It is clean and easy to read, but g
 I plan on making the books and telescope grow on hover for the desktop, maybe add a bit of a dropshadow that acts like a glow, and for tablet/mobile since there is no hover, it would be an animation on page load, then on click there will be the grow with a delay in the activation of the button.
 
 All the assets minus the pictures from the APOD site are going to have a cartoon/hand drawn affect.  It will give a hand crafted, cute/whimiscal feel to the site overall.
+
+Copyrights 
+
+https://unsplash.com/photos/wG923J9naFQ
+https://unsplash.com/photos/im8y4BO2hso 
+https://pixabay.com/illustrations/telescope-astronomy-science-space-5083670/
+https://unsplash.com/photos/lLDh9JppH2c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopy
