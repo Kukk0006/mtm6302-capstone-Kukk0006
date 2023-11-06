@@ -18,3 +18,13 @@ https://unsplash.com/photos/wG923J9naFQ
 https://unsplash.com/photos/im8y4BO2hso 
 https://pixabay.com/illustrations/telescope-astronomy-science-space-5083670/
 https://unsplash.com/photos/lLDh9JppH2c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopy
+
+Issues and Challenges - Part 3
+
+tooltip for Telescope on home page https://www.w3schools.com/css/css_tooltip.asp
+
+getting image to center on Today's Page
+
+Overlay JS issue.  Inital JS had the style set to hidden, which removed the element, instead I changed the background transparancy to keep the overlay there.
+
+Bootstrap nav bar is pushing the background image even set to absolutle 

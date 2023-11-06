@@ -1,0 +1,159 @@
+html,
+body {
+  height: 100%;
+}
+nav{
+  z-index: 1;
+}
+/* ------------------Home Page--------------------*/
+.home{
+  overflow: hidden;
+  background-color: #000;
+}
+#background{
+  background-color: transparent;
+  position: absolute;
+  left:-300px;
+}
+#telescope{
+  top:100px;
+  left:10px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  transition: all .2s ease-in-out;
+  z-index: 1;
+}
+
+#telescope:hover{
+  transform: scale(1.05)
+}
+.telescope-img{
+  height:660px;
+}
+/*--------------------Today's---------------------------------*/
+.todays-body{
+  background-color: #000;
+}
+/* .todays-nav{
+  display: none;
+} */
+.tel-img{
+min-height:100%;
+object-fit: cover;
+}
+/*------  https://stackoverflow.com/questions/8286550/transparent-hollow-or-cut-out-shape-in-html      -----*/
+.overlay {
+  /* this is flexible. you can change */
+  --circle-radius: 45%;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  --mask: radial-gradient(circle farthest-side at center center, transparent var(--circle-radius), #000 calc(var(--circle-radius) + 2px) 100%) 50% 50%/100% 100% no-repeat;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  background: #000;
+}
+
+/*-------------*/
+
+iframe[src=""]{
+  display:none;
+}
+#pictureHD{
+  display: none;
+}
+.learn-more{
+  position: fixed;
+  bottom: 10px;
+  z-index: 1;
+}
+.add-fav{
+  position: fixed;
+  bottom:10px;
+  right:10px;
+  z-index: 1;
+  height:4rem;
+}
+.add-fav-modal{
+  height:4rem;
+  width: auto;
+  z-index: 1;
+}
+#pictureModal{
+ max-height:50em;
+  width: auto;
+  margin: 0 auto;
+}
+
+
+/*------------------------------Fav-----------------------------*/
+.parent {
+  position: relative;
+}
+.mainImg{
+  max-width: 300px;
+  max-height: 300px;
+}
+.cornerTL {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+.cornerTR {
+  position: absolute;
+  top: 0%;
+  transform: translate(-100%,0%) rotate(90deg);
+}
+.cornerBL{
+  position: absolute;
+  top: 100%;
+  transform: translate(-100%, -100%) ;
+  /* border: 3px blue solid; */
+}
+.cornerBR{
+  position: absolute;
+  top: 100%;
+  left:0%;
+  transform: translate(0%,-100%) rotate(-90deg);
+  /* border: 3px palegreen solid; */
+}
+.corner, .more-info {
+  max-width: 3em;
+} 
+
+
+/*-------------------------Past-------------------------------*/
+.past-search{
+overflow: hidden;
+}
+.search-window{
+  min-height:100vh;
+  position: relative;
+  top:40vh;
+}
+.past-picture, .past-picture-hd{
+  max-height: 75vh;
+}
+
+/*--------------------Media Query---------------------*/
+
+/*----------------Tablet landscape----------------*/
+
+/*----------------Desktop landscape----------------*/
+@media screen and (min-width: 768px) {
+  #background{
+    left: 0;
+    object-fit: cover;
+  }
+  #telescope{
+    top:150px;
+    left: 300px;
+  }
+  
+  .telescope-img{
+    height:600px;
+  }
+}
