@@ -5,6 +5,12 @@ body {
 nav{
   z-index: 1;
 }
+h1, h2, h3, h4, h5{
+  font-family: Exo, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+p, a{
+  font-family: Consolas, Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+}
 /* ------------------Home Page--------------------*/
 .home{
   overflow: hidden;
@@ -23,10 +29,13 @@ nav{
   border: none;
   transition: all .2s ease-in-out;
   z-index: 1;
+
 }
 
 #telescope:hover{
-  transform: scale(1.05)
+  transform: scale(1.05);
+  -webkit-filter: drop-shadow(5px 5px 7px #ffffffa6);
+  filter: drop-shadow(5px 5px 7px #ffffffa6);
 }
 .telescope-img{
   height:660px;
@@ -87,15 +96,18 @@ iframe[src=""]{
   width: auto;
   margin: 0 auto;
 }
-
+.btn-close-lm{
+  height:3rem;
+}
 
 /*------------------------------Fav-----------------------------*/
+
 .parent {
   position: relative;
 }
 .mainImg{
   max-width: 300px;
-  max-height: 300px;
+  max-height: 275px;
 }
 .cornerTL {
   position: absolute;
@@ -134,6 +146,7 @@ overflow: hidden;
   position: relative;
   top:40vh;
 }
+
 .past-picture, .past-picture-hd{
   max-height: 75vh;
 }
@@ -156,4 +169,27 @@ overflow: hidden;
   .telescope-img{
     height:600px;
   }
+  .book{
+    z-index: 2;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    transition: all .2s ease-in-out;
+    z-index: 1;
+  }
+  .favorites-btn{
+    top:700px;
+    left:700px;
+  }
+  .past-btn{
+    top:800px;
+    left:950px;
+  }
+  .book:hover{
+    transform: scale(1.05)
+    -webkit-filter: drop-shadow(5px 5px 7px #ffffffa6);
+    filter: drop-shadow(5px 5px 7px #ffffffa6);
+  }
 }
+
+
