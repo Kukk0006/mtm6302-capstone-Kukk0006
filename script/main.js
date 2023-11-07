@@ -1,12 +1,13 @@
 let baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
 // let dateurl = "&date=2020-03-03"
+let dateurl = "&date=2005-06-21"
 //let test = 0;
 
 const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key
-let btn = document.querySelector("button");
+
 const fetchNASAData = async () => {
   try {
-    const response = await fetch(`${baseurl}${api_key}`)
+    const response = await fetch(`${baseurl}${api_key}${dateurl}`)
     // ${dateurl}
     // can insert after API key to access specific date
     const data = await response.json()
