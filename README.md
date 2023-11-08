@@ -22,9 +22,23 @@ https://unsplash.com/photos/lLDh9JppH2c?utm_source=unsplash&utm_medium=referral&
 Issues and Challenges - Part 3
 
 tooltip for Telescope on home page https://www.w3schools.com/css/css_tooltip.asp
+Positioning the telescope - making the image not resize with a percentage and make it a set size.
 
-getting image to center on Today's Page
+getting image to center on Today's Page - Using the bootstrap website I found “d-flex align-items-center justify-content-center h-100” to fix the problem
 
-Overlay JS issue.  Inital JS had the style set to hidden, which removed the element, instead I changed the background transparancy to keep the overlay there.
+Overlay JS issue.  Initial JS had the style set to hidden, which removed the element, instead I changed the background transparency to keep the overlay there.  That created another problem that I will fix with JavaScript to make it so there is no overlay when there is an iframe.
 
-Bootstrap nav bar is pushing the background image even set to absolutle 
+Bootstrap navbar is pushing the background image even set to absolute - have not found a solution to this yet.  Possibly a fix with java script that when the hamburger menu is clicked, the button that is the telescope will move as well. 
+
+https://stackoverflow.com/questions/51659414/populate-dropdown-list-with-current-day-month-and-year date picker code
+
+Issues I will fix for capstone 4:
+
+Mobile/single page for the book is having issues - Will make a carousel
+
+Favorite book covers will be updated
+
+Past pictures will change to a tablet background, and tablet asset on the table
+
+Add search past pictures on the navbar
+
