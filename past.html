@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,700;1,400&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"><!--Date Picker-->
   <link href="css/style.css" rel="stylesheet">
   <title>APOD Past Pictures</title>
 </head>
@@ -32,22 +33,28 @@
       </div>
     </div>
   </nav>
-  <div class="container search-window text-center align-m">
+  <div class="container search-window text-center align-m ">
 
     <h1> Find Pictures From The Past</h1>
-    <select id="month"></select>
-    <select id="day"></select>
-    <select id="year"></select>
+    <p>Date: <input type="text" id="datepicker"></p>
     <a class="btn" type="submit" href="#past-search-result">Submit</a>
   </div>
   <div class="card text-center" id="past-search-result">
-    <div class="card-body">
-      <h5 class="card-title" id="title"></h5>
+    <div class="card-body past-card">
+
       <img class="img-fluid past-picture" id="picture">
       <img class="img-fluid past-picture-hd" id="pictureHD">
-      <p id="date"></p> <img src="images/heart.png" type="button" class="btn add-fav-modal d-flex justify-content-end">
-      <p class="card-text" id="explanation"></p>
-      <a href="#" class="btn btn-primary">Back to search</a>
+      <div>
+        <iframe id="videoURL" src="" frameborder="0" class="past-iframe"></iframe>
+        <img src="images/heart.png" type="button" class="btn add-fav-modal d-flex justify-content-end">
+      </div>
+      <div class="past-info p-5">
+        <h5 class="card-title" id="title"></h5>
+        <p id="date"></p>
+        <p class="card-text" id="explanation"></p>
+      </div>
+
+      <a href="#" class="btn btn-primary m-2">Back to search</a>
     </div>
   </div>
 
@@ -55,8 +62,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    crossorigin="anonymous"></script><!--Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><!--Sweet Alert 2-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script><!--Datepicker pt1-->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script><!--Datepicker pt2-->
   <script src="/script/main.js"></script>
   <script src="/script/pastbook.js"></script>
 </body>

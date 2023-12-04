@@ -74,6 +74,10 @@ iframe[src=""]{
 #pictureHD{
   display: none;
 }
+#videoURL{
+  width: 100vw;
+  height: 90vh;
+}
 .learn-more{
   position: fixed;
   bottom: 10px;
@@ -92,7 +96,7 @@ iframe[src=""]{
   z-index: 1;
 }
 #pictureModal{
- max-height:50em;
+  max-height:50em;
   width: auto;
   margin: 0 auto;
 }
@@ -138,8 +142,19 @@ iframe[src=""]{
 
 
 /*-------------------------Past-------------------------------*/
-.past-search{
+/* .past-search{
 overflow: hidden;
+}
+#past-search-result{
+  min-height:100vh;
+  overflow-y: scroll;
+} */
+.past-card{
+  background-color: black;
+}
+.past-info{
+  background-color: white;
+  border-radius: 25px;
 }
 .search-window{
   min-height:100vh;
@@ -149,6 +164,10 @@ overflow: hidden;
 
 .past-picture, .past-picture-hd{
   max-height: 75vh;
+}
+.past-iframe{
+  max-width: 50vh;
+  max-height: 50vh;
 }
 
 /*--------------------Media Query---------------------*/
@@ -193,3 +212,12 @@ overflow: hidden;
 }
 
 
+/*----------------------------test-------------------------------*/
+#test{
+  display: grid;
+  grid-template-rows:auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+  margin: 2em;
+  grid-auto-rows: auto;
+}

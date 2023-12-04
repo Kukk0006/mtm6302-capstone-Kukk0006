@@ -1,9 +1,11 @@
 let baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
-// let dateurl = "&date=2020-03-03"
-let dateurl = "&date=2005-06-21"
+// let dateurl = ''
+// let dateurl = "&date=2020-03-03" //video
+let dateurl = "&date=1999-06-21" //picture
 //let test = 0;
+const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key diff for best security practice, normally on another script file
+let favs = [] //empty array for favorites 
 
-const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key
 
 const fetchNASAData = async () => {
   try {
@@ -12,6 +14,7 @@ const fetchNASAData = async () => {
     // can insert after API key to access specific date
     const data = await response.json()
     console.log('NASA APOD data', data)
+
     displayData(data)
   } catch (error) {
     console.log(error)
@@ -19,28 +22,68 @@ const fetchNASAData = async () => {
 }
 fetchNASAData()
 const displayData = data => {
-  document.getElementById('title').textContent = data.title
-  document.getElementById('date').textContent = data.date
-  document.getElementById('explanation').textContent = data.explanation
+  titleAPI = document.getElementById('title').textContent = data.title
+  dateAPI = document.getElementById('date').textContent = data.date
+  infoAPI = document.getElementById('explanation').textContent = data.explanation
   if (data.media_type == "video") {
-    document.getElementById('videoURL').src = data.url
+    videoAPI = document.getElementById('videoURL').src = data.url
+    document.getElementById('overlay').classList.remove('overlay')
     document.getElementById('videoURLModal').src = data.url
   } else {
-    document.getElementById('picture').src = data.url//multiple id's??????
-    document.getElementById('pictureModal').src = data.url
-    document.getElementById('pictureHD').src = data.hdurl
+    urlAPI = document.getElementById('picture').src = data.url
+    urlModal = document.getElementById('pictureModal').src = data.url
+    urlHDAPI = document.getElementById('pictureHD').src = data.hdurl
   }
 }
-// easier way with objects week7 class......
 
-//ofTheDay
-const $overlay = document.getElementById('overlay')
-$overlay.addEventListener('click', function () {
-  if (overlay.style.background !== "transparent") {
-    overlay.style.background = "transparent";
+//add and remove button
+function clickHandler (e) {
+  console.log(e.target)
+  if (e.target.classList.contains('add-fav') || e.target.classList.contains('add-fav-modal')) {
+    // alert("Fav added!");
+    if (!favs.find(data => data.title === titleAPI)) {
+      favs.unshift({
+        url: urlAPI,
+        urlHD: urlHDAPI,
+        title: titleAPI,
+        date: dateAPI,
+        info: infoAPI
+      });
+      localStorage.setItem('ImageInfo', JSON.stringify(favs));
+      alert("New Favorite")
+    }
+    else {
+      swal.fire("You love it so much, you've already added this one", "", "warning")
+    }
+  } else if (e.target.classList.contains('remove')) {
+    // const remove = favs.find(data => data.title === titleAPI)
+    // favs.splice(remove, 1)
+    // localStorage.setItem('ImageInfo', JSON.stringify(favs));
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+    });
   }
-  else {
-    overlay.style.background = "#000"
-  }
-})
+}
+addEventListener('click', clickHandler)
 
+function buildFavs () {
+  const ls = localStorage.getItem('ImageInfo')
+  if (ls) {
+    favs = JSON.parse(ls)
+  }
+}
+buildFavs()
+
+
+
+
+//Fav-----------------------------------------------------------
+//
+
+//past-----------------------------------------------------------
+//use submit button to change let dateurl
+
+
+//ofTheDay---------------------------------------------------
