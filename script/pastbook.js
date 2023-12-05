@@ -9,3 +9,5 @@ $(function () {
 
   });
 });
+
+//on select method, prevent default, constrain input

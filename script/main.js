@@ -1,11 +1,11 @@
 let baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
-// let dateurl = ''
+let dateurl = ''
 // let dateurl = "&date=2020-03-03" //video
-let dateurl = "&date=1999-06-21" //picture
+// let dateurl = "&date=2016-07-16" //picture
 //let test = 0;
 const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key diff for best security practice, normally on another script file
 let favs = [] //empty array for favorites 
-
+const $modal = document.querySelector('.learnMoreModal')
 
 const fetchNASAData = async () => {
   try {
@@ -39,6 +39,7 @@ const displayData = data => {
 //add and remove button
 function clickHandler (e) {
   console.log(e.target)
+  let indexClicked = e.target.dataset.index
   if (e.target.classList.contains('add-fav') || e.target.classList.contains('add-fav-modal')) {
     // alert("Fav added!");
     if (!favs.find(data => data.title === titleAPI)) {
@@ -55,16 +56,29 @@ function clickHandler (e) {
     else {
       swal.fire("You love it so much, you've already added this one", "", "warning")
     }
-  } else if (e.target.classList.contains('remove')) {
-    // const remove = favs.find(data => data.title === titleAPI)
-    // favs.splice(remove, 1)
-    // localStorage.setItem('ImageInfo', JSON.stringify(favs));
+  } else if (e.target.classList.contains("learnMore")) {
+    $modal.innerHTML = `            
+    <div class="row justify-content-center">
+    <div class="col-6">
+      <p id="favorite-title">${favs[indexClicked].title}</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p id="favorite-date">${favs[indexClicked].date}</p>
+    </div>
+  </div><!--end row-->
+  <div class="row">
+    <p id="favorite-explanation">${favs[indexClicked].info}</p>
+  </div><!--end row-->`
+  }
+  else if (e.target.classList.contains('remove')) {
+    favs.splice(indexClicked, 1)
+    localStorage.setItem('ImageInfo', JSON.stringify(favs));
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Something went wrong!",
+      text: "Trying to delete this image!",
     });
-  }
+  } buildFavs()
 }
 addEventListener('click', clickHandler)
 
