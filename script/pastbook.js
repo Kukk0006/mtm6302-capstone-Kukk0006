@@ -24,6 +24,7 @@ $(document).ready(function () {
     });
   });
 });
+console.log("hello from the past")
 // document.getElementById('pastBtn').addEventListener('click', function (e) {
 //   swal.fire({
 //     icon: "success",
