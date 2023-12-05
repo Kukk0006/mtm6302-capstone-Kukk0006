@@ -41,13 +41,15 @@
   </div>
   <div class="card text-center" id="past-search-result">
     <div class="card-body past-card">
-
-      <img class="img-fluid past-picture" id="picture">
-      <img class="img-fluid past-picture-hd" id="pictureHD">
-      <div>
-        <iframe id="videoURL" src="" frameborder="0" class="past-iframe"></iframe>
-        <img src="images/heart.png" type="button" class="btn add-fav-modal d-flex justify-content-end">
-      </div>
+      <div class="d-flex align-items-center justify-content-center h-100 myAPICall">
+        <img class="img-fluid tel-img" id="picture">
+        <img class="tel-img-hd" id="pictureHD">
+        <div>
+          <iframe id="videoURL" src="" frameborder="0" class="tel-iframe"></iframe>
+        </div>
+      </div> <!--img div for alignment-->
+      <!--Note HD Hidden, pop over via Bootstrap for more info-->
+      <img src="images/heart.png" type="button" class="btn add-fav">
       <div class="past-info p-5">
         <h5 class="card-title" id="title"></h5>
         <p id="date"></p>

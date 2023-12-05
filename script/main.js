@@ -1,12 +1,17 @@
 let baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
 let dateurl = ''
 // let dateurl = "&date=2020-03-03" //video
-// let dateurl = "&date=2016-07-16" //picture
+// let dateurl = "&date=2017-07-16" //picture
 //let test = 0;
 const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key diff for best security practice, normally on another script file
 let favs = [] //empty array for favorites 
 const $modal = document.querySelector('.learnMoreModal')
-
+function buildFavs () {
+  const ls = localStorage.getItem('ImageInfo')
+  if (ls) {
+    favs = JSON.parse(ls)
+  }
+}
 const fetchNASAData = async () => {
   try {
     const response = await fetch(`${baseurl}${api_key}${dateurl}`)
@@ -36,6 +41,8 @@ const displayData = data => {
   }
 }
 
+
+
 //add and remove button
 function clickHandler (e) {
   console.log(e.target)
@@ -45,30 +52,15 @@ function clickHandler (e) {
     if (!favs.find(data => data.title === titleAPI)) {
       favs.unshift({
         url: urlAPI,
-        urlHD: urlHDAPI,
         title: titleAPI,
         date: dateAPI,
         info: infoAPI
       });
       localStorage.setItem('ImageInfo', JSON.stringify(favs));
-      alert("New Favorite")
     }
     else {
       swal.fire("You love it so much, you've already added this one", "", "warning")
     }
-  } else if (e.target.classList.contains("learnMore")) {
-    $modal.innerHTML = `            
-    <div class="row justify-content-center">
-    <div class="col-6">
-      <p id="favorite-title">${favs[indexClicked].title}</p>
-    </div>
-    <div class="col-6 d-flex justify-content-end">
-      <p id="favorite-date">${favs[indexClicked].date}</p>
-    </div>
-  </div><!--end row-->
-  <div class="row">
-    <p id="favorite-explanation">${favs[indexClicked].info}</p>
-  </div><!--end row-->`
   }
   else if (e.target.classList.contains('remove')) {
     favs.splice(indexClicked, 1)
@@ -82,12 +74,7 @@ function clickHandler (e) {
 }
 addEventListener('click', clickHandler)
 
-function buildFavs () {
-  const ls = localStorage.getItem('ImageInfo')
-  if (ls) {
-    favs = JSON.parse(ls)
-  }
-}
+
 buildFavs()
 
 

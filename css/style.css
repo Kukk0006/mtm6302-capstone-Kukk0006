@@ -8,6 +8,11 @@ nav{
 h1, h2, h3, h4, h5{
   font-family: Exo, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h1{
+  font-size: 5em;
+  padding: 4rem;
+  text-align: center;
+}
 p, a{
   font-family: Consolas, Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 }
@@ -105,7 +110,15 @@ iframe[src=""]{
 }
 
 /*------------------------------Fav-----------------------------*/
-
+#favs{
+  background-color: #3a3a3a;
+}
+#favs h1 {
+  color:rgb(228, 228, 228);
+}
+#favs .card{
+  background-color: #b4b4b4;
+}
 .parent {
   position: relative;
 }
@@ -213,7 +226,21 @@ overflow: hidden;
 
 
 /*----------------------------test-------------------------------*/
-#test{
+
+.imgRestrict{
+	max-width: 300px;
+}
+.modalImg{
+  width: calc(100% - 2em);
+  margin: 0 auto;
+}
+ .galleryImg:hover{
+transform: scale(1.1);
+ }
+ .galleryImg:active{
+  transform: rotate(10deg) ;
+ }
+.galleryGrid{
   display: grid;
   grid-template-rows:auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -221,3 +248,41 @@ overflow: hidden;
   margin: 2em;
   grid-auto-rows: auto;
 }
+.grid-item{
+  justify-self: center;
+  align-self: center;
+  display: block;
+  padding:1rem;
+  filter: drop-shadow(rgb(95, 95, 95) 0.5rem 0.5rem 1rem)
+  }
+/* p{
+  text-align: center;
+  padding:1em;
+} */
+
+
+/* .modal {
+  position: fixed;
+  top: 0;
+  display: grid;
+  object-fit: contain;
+  justify-content: center;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+  padding: 25px;
+  background-color: rgba(108, 138, 108, 0.349);
+  opacity: 0;
+  visibility: hidden;
+	overflow: scroll;
+  border: red solid 5px dotted;
+} */
+/* .caption{
+  height:5em;
+  width: 100%;
+  background-color:  rgba(108, 138, 108, 0.349);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+} */
