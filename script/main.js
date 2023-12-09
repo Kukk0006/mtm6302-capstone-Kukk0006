@@ -1,4 +1,4 @@
-let baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
+const baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
 let dateurl = ''
 // let dateurl = "&date=2020-03-03" //video
 // let dateurl = "&date=2017-07-16" //picture
@@ -56,10 +56,15 @@ function clickHandler (e) {
         date: dateAPI,
         info: infoAPI
       });
+      swal.fire({
+        icon: "success",
+        title: "Added to My Favorites",
+        timer: 2000,
+      })
       localStorage.setItem('ImageInfo', JSON.stringify(favs));
     }
     else {
-      swal.fire("You love it so much, you've already added this one", "", "warning")
+      swal.fire({ title: "You love it so much", text: "You've already added this one", icon: "success", timer: 2000, })
     }
   }
   else if (e.target.classList.contains('remove')) {
@@ -70,6 +75,7 @@ function clickHandler (e) {
       title: "Oops...",
       text: "Trying to delete this image!",
     });
+    buildFavs()
   } buildFavs()
 }
 addEventListener('click', clickHandler)
@@ -78,13 +84,13 @@ addEventListener('click', clickHandler)
 buildFavs()
 
 
-
+//Of the Day------------------------------------
 
 //Fav-----------------------------------------------------------
 //
 
+
 //past-----------------------------------------------------------
 //use submit button to change let dateurl
-
 
 //ofTheDay---------------------------------------------------

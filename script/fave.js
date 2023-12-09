@@ -1,7 +1,4 @@
-console.log("My Gallery")
-
-
-//empty array for the generated html to be pushed to, so it's all accessed at once -faster load time and streamlined
+// empty array for the generated html to be pushed to, so it's all accessed at once -faster load time and streamlined
 const gallery = []
 
 //for...of loop to go through each item in the array and push the generated html into the empty array

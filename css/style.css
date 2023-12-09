@@ -6,7 +6,7 @@ nav{
   z-index: 1;
 }
 h1, h2, h3, h4, h5{
-  font-family: Exo, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Exo", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 h1{
   font-size: 5em;
@@ -14,7 +14,7 @@ h1{
   text-align: center;
 }
 p, a{
-  font-family: Consolas, Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+  font-family: "Consolas", Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 }
 /* ------------------Home Page--------------------*/
 .home{
@@ -162,6 +162,13 @@ overflow: hidden;
   min-height:100vh;
   overflow-y: scroll;
 } */
+.past-search{
+  background-image: url("https://unsplash.com/photos/the-night-sky-is-filled-with-stars-Ef6iL87-vOA");
+  background-color: #3a3a3a;
+}
+.past-search h1, span, .past-btn{
+  color:white;
+}
 .past-card{
   background-color: black;
 }
