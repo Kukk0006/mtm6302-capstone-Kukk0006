@@ -34,7 +34,7 @@ const displayData = data => {
     document.getElementById('videoURLModal').src = data.url
   } else {
     urlAPI = document.getElementById('picture').src = data.url
-    urlModal = document.getElementById('pictureModal').src = data.url
+    // urlModal = document.getElementById('pictureModal').src = data.url
     urlHDAPI = document.getElementById('pictureHD').src = data.hdurl
   }
 }
@@ -52,7 +52,7 @@ function clickHandler (e) {
     if (!favs.find(data => data.title === titleAPI)) {
       favs.unshift({
         url: urlAPI,
-        // hdurl: urlHDAPI,
+        hdurl: urlHDAPI,
         title: titleAPI,
         date: dateAPI,
         info: infoAPI
@@ -70,4 +70,3 @@ function clickHandler (e) {
   }
 }
 addEventListener('click', clickHandler)
-

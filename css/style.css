@@ -262,34 +262,19 @@ transform: scale(1.1);
   padding:1rem;
   filter: drop-shadow(rgb(95, 95, 95) 0.5rem 0.5rem 1rem)
   }
-/* p{
-  text-align: center;
-  padding:1em;
-} */
-
-
-/* .modal {
-  position: fixed;
-  top: 0;
-  display: grid;
-  object-fit: contain;
-  justify-content: center;
-  width: calc(100% - 50px);
-  height: calc(100% - 50px);
-  padding: 25px;
-  background-color: rgba(108, 138, 108, 0.349);
-  opacity: 0;
-  visibility: hidden;
-	overflow: scroll;
-  border: red solid 5px dotted;
-} */
-/* .caption{
-  height:5em;
-  width: 100%;
-  background-color:  rgba(108, 138, 108, 0.349);
-}
-
-.show {
-  opacity: 1;
-  visibility: visible;
-} */
+  .modalHD {
+    position: fixed;
+    top: 0;
+    object-fit: contain;
+    justify-content: center;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    padding: 25px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: scroll;
+  }
+  .show {
+    opacity: 1;
+    visibility: visible;
+  }
