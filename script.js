@@ -2,8 +2,8 @@ console.log("hello")
 //----------API Stuff-------------------
 
 const baseurl = 'https://api.nasa.gov/planetary/apod?api_key='
-// let dateurl = ''
-let dateurl = "&date=2020-03-03" //video
+let dateurl = ''
+// let dateurl = "&date=2020-03-03" //video
 // let dateurl = "&date=2018-06-07" //picture
 //let test = 0;
 const api_key = 'O1Y1c8dLaOAYMEU4ZsMCqcDyiJSARsA4bW1xpyAy' //my key diff for best security practice, normally on another script file
@@ -29,11 +29,11 @@ async function buildToday () {
   if (data.media_type == "video") {
     todayHTML = `
     <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
-    <iframe id="videoURL" src="${data.url}" frameborder="0" class="tel-iframe" id="picture" src="${data.url}" alt="${data.title}" data-title="${data.title}" data-videourl="${data.url}" data-url="" data-date="${data.date}" data-info="${data.explanation}"></iframe>
+    <iframe id="videoURL" src="${data.url}" frameborder="0" class="tel-iframe" id="picture" src="${data.url}" alt="${data.title}" data-title="${data.title}" data-videourl="${data.url}" data-url="" data-hdurl="" data-date="${data.date}" data-info="${data.explanation}"></iframe>
     </div> <!--img div for alignment-->
     <div class="button-box-fixed">
     <button type="button" data-bs-toggle="modal" data-bs-target="#learnMore" class="main-button learn-more">Learn More</button>
-    <a type="button" class="btn add-fav-btn"><img src="images/heart.png" class="add-fav" data-title="${data.title}" data-videourl="${data.url}" data-date="${data.date}" data-url="" data-info="${data.explanation}"></a>
+    <a type="button" class="btn add-fav-btn"><img src="images/heart.png" class="add-fav" data-title="${data.title}" data-videourl="${data.url}" data-date="${data.date}" data-url="" data-hdurl="" data-info="${data.explanation}"></a>
   </div><!--end button-box-fixed-->
       <!---Modal-->
       <div class="modal fade modal-xl" id="learnMore" tabindex="-1" aria-labelledby="learnMoreLabel" aria-hidden="true">
@@ -47,7 +47,7 @@ async function buildToday () {
               <div class="container-fluid">
                 <div class="row" id="modalVisual">
                 <iframe id="videoURL" src="${data.url}" frameborder="0" class="videoURLModal"></iframe>
-                    <img src="images/heart.png" type="button" class="btn add-fav-modal d-flex justify-content-end">
+                <a type="button" class="btn add-fav-btn"><img src="images/heart.png" class="add-fav" data-title="${data.title}" data-videourl="${data.url}" data-date="${data.date}" data-url="" data-info="${data.explanation}"></a>
                   </div>
                   <div class="row justify-content-center">
                     <div class="col-6">
@@ -68,10 +68,11 @@ async function buildToday () {
     `
   } else {
     todayHTML = `
+    <div class="hdimgdiv"></div>
     <div class="container">
     <div class="h-100 position-relative">
     <div class="d-flex justify-content-center">
-    <img class="img-fluid tel-img" id="picture" src="${data.url}" alt="${data.title}" data-hdurl="${data.hdurl}" data-url="${data.url}" data-date="${data.date}" data-info="${data.explanation}" data-videourl="">
+    <img class="img-fluid tel-img" id="picture" src="${data.url}" alt="${data.title}" ddata-title="${data.title}" data-videourl="" data-date="${data.date}" data-url="${data.url}" data-hdurl="${data.hdurl}" data-info="${data.explanation}">
     <div class="overlay" id="overlay"></div> <!--------Overlay ---------->
   </div><!--end h-100-->
   </div>
@@ -91,7 +92,7 @@ async function buildToday () {
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row" id="modalVisual">
-              <img class="img-fluid tel-img" id="pictureModal" src="${data.url}" alt="${data.title}" data-large="{$data.hdurl}">
+              <img class="img-fluid tel-img" id="pictureModal" src="${data.url}" alt="${data.title}" data-hdurl="${data.hdurl}">
               <a type="button" class="btn add-fav-btn"><img src="images/heart.png" class="add-fav" data-title="${data.title}" data-videourl="" data-date="${data.date}" data-url="${data.url}" data-hdurl="${data.hdurl}" data-info="${data.explanation}"></a>
                 </div>
                 <div class="row justify-content-center">
@@ -161,7 +162,7 @@ function buildGallery () {
   const html = [];
   for (let i = 0; i < favs.length; i++) {
     html.push(`<span class="card grid-item">
-      <img src="${favs[i].url}" alt="${favs[i].title}" data-source="${favs[i].title}" data-date="${favs[i].date}" data-index="${i}" data-large="${favs[i].hdurl}" class="galleryImg imgRestrict pb-2">
+      <img src="${favs[i].url}" alt="${favs[i].title}" data-source="${favs[i].title}" data-date="${favs[i].date}" data-index="${i}" data-hdurl="${favs[i].hdurl}" class="galleryImg imgRestrict pb-2">
       <iframe id="videoURLModal" src="${favs[i].videourl}" frameborder="0"></iframe>
       <div class="card-text d-flex justify-content-between">
         <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#learnMoreFav" class="btn btn-sm btn-primary learnFavMore" data-index="${i}">About</a>
@@ -197,6 +198,7 @@ const favoriteHTML = `
 <div id="galleryGrid" class="galleryGrid">
 
 </div>
+<div class="hdimgdiv"></div>
 <div class="modal fade modal-xl" id="learnMoreFav" tabindex="-1" aria-labelledby="learnMoreFavLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -205,8 +207,7 @@ aria-hidden="true">
       <img type="button" class="btn-close-lm" data-bs-dismiss="modal" aria-label="Close" src="images/close.png">
     </div>
     <div class="modal-body faveModal" id="favModal">
-     <h1>  Do not fear for I am here</h1>
-     <img src="https://www.looper.com/img/gallery/my-hero-academia-the-reason-all-might-is-the-most-powerful-teacher/intro-1596067346.jpg">
+     
       </div><!--end modal-body-->
     </div><!--end modal-content-->
   </div> <!--end modal-dialog-->
@@ -291,7 +292,12 @@ function clickHandler (e) {
       localStorage.setItem('ImageInfo', JSON.stringify(favs));
     }
     else {
-      swal.fire({ title: "You love it so much", text: "You've already added this one", icon: "info", timer: 1500, })
+      swal.fire({
+        icon: "info",
+        title: "You love it so much",
+        text: "You've already added " + e.target.dataset.title + " to your favorites",
+        timer: 2000,
+      })
     }
   } else if (e.target.classList.contains('remove')) {
     favs.splice(indexClicked, 1)
@@ -306,12 +312,12 @@ function clickHandler (e) {
     const $faveModal = document.querySelector('.faveModal')
     // Handle clicks on the "Learn-More" button
     // Access data associated with the clicked index
-    swal.fire({
-      icon: 'question',
-      text: 'Clicked on "Learn-More" for title: ' + favs[indexClicked].title,
-    });
+    // swal.fire({
+    //   icon: 'question',
+    //   text: 'Clicked on "Learn-More" for title: ' + favs[indexClicked].title,
+    // });
     $faveModal.innerHTML = `
-    <img src="${favs[indexClicked].url}" alt="${favs[indexClicked].title}" class="modalImg text-center" >
+    <img src="${favs[indexClicked].url}" alt="${favs[indexClicked].title}" class="modalImg text-center" data-hdurl="${favs[indexClicked].hdurl}" >
     <iframe src="${favs[indexClicked].videourl}" frameborder="0" class="videoURLModal"></iframe>
     <div class="col-6 d-flex justify-content-end">
     <p id="favorite-date">${favs[indexClicked].date}</p>
@@ -320,12 +326,16 @@ function clickHandler (e) {
     <div class="row">
     <h3>${favs[indexClicked].title}</h3>
     <p id="favorite-explanation" class="caption">${favs[indexClicked].info}</p>`
-  } else if (e.target.classList.contains('galleryImg')) {
-    swal.fire({
-      icon: "warning",
-      title: "Oh noes",
-      text: 'HD Version of "' + e.target.dataset.source + '"  coming soon',
-    })
+  } else if (e.target.classList.contains('galleryImg') || e.target.classList.contains('modalImg') || e.target.classList.contains('tel-img')) {
+    const $hdimgdiv = document.querySelector('.hdimgdiv')
+    document.querySelector('.modal').style.display = "none"
+    document.querySelector('.modal-body').style.display = "none"
+    $hdimgdiv.innerHTML = `<img src="${e.target.dataset.hdurl}" alt="${e.target.dataset.title}" class="hdimg">`
+  } else if (e.target.classList.contains("hdimg")) {
+    const $hdimgdiv = document.querySelector('.hdimgdiv')
+    document.querySelector('.modal').style.display = null
+    document.querySelector('.modal-body').style.display = null
+    $hdimgdiv.innerHTML = ""
   } else if (e.target.classList.contains('overlay')) {
     if (overlay.style.background !== "transparent") {
       overlay.style.background = "transparent";

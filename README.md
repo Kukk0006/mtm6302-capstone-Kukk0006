@@ -53,3 +53,5 @@ I still haven't figured out how to keep the top portion non-scrollable and the b
 As of this version of the site, I have mutiple pages for HTML and JS, I will work on condensing it down, but right now it works.  I would rather loose marks for multiple pages than the site not working at all.  
 
 Other small things I want to change are fixing the postition of the favs button, replacing the "books" on the table and I am even looking in to lottie and want to add some of those.
+
+When displaying HD sometimes have to click the learn more/about twice for it to work

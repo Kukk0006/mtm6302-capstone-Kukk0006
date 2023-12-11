@@ -17,6 +17,9 @@ h1{
 p, a{
   font-family: "Consolas", Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 }
+.nav-link{
+  cursor: pointer;
+}
 /* ------------------Home Page--------------------*/
 .homePage{
   overflow: hidden;
@@ -35,7 +38,6 @@ p, a{
   border: none;
   transition: all .2s ease-in-out;
   z-index: 1;
-
 }
 
 #telescope:hover{
@@ -76,6 +78,10 @@ object-fit: cover;
 width:50vw;
 height:80vh;
 }
+.modalImgHD{
+  height: 100%;
+  width: 100%;
+}
 .button-box-fixed {
   position: fixed;
   bottom: 0;
@@ -105,7 +111,11 @@ height:80vh;
 .btn-close-lm{
   height:3rem;
 }
-
+.hdimgdiv{
+  position: absolute;
+  z-index: 10;
+  top:0;
+}
 /*------------------------------Fav-----------------------------*/
 iframe[src=""]{
   display:none;
@@ -231,3 +241,6 @@ transform: scale(1.1);
   padding:1rem;
   filter: drop-shadow(rgb(95, 95, 95) 0.5rem 0.5rem 1rem)
   }
+.modal-backdrop{
+  display: none;
+}
