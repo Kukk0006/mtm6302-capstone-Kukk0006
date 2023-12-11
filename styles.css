@@ -1,18 +1,24 @@
 html,
 body {
   height: 100%;
+  background-color: #000;
 }
 nav{
   z-index: 1;
 }
 h1, h2, h3, h4, h5{
-  font-family: Exo, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Exo", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1{
+  font-size: 5em;
+  padding: 4rem;
+  text-align: center;
 }
 p, a{
-  font-family: Consolas, Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+  font-family: "Consolas", Menlo, Monaco, 'Lucida Console', Liberation Mono, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 }
 /* ------------------Home Page--------------------*/
-.home{
+.homePage{
   overflow: hidden;
   background-color: #000;
 }
@@ -38,17 +44,11 @@ p, a{
   filter: drop-shadow(5px 5px 7px #ffffffa6);
 }
 .telescope-img{
-  height:660px;
+  height:600px;
 }
 /*--------------------Today's---------------------------------*/
-.todays-body{
-  background-color: #000;
-}
-/* .todays-nav{
-  display: none;
-} */
 .tel-img{
-min-height:100%;
+min-height:100vh;
 object-fit: cover;
 }
 /*------  https://stackoverflow.com/questions/8286550/transparent-hollow-or-cut-out-shape-in-html      -----*/
@@ -68,23 +68,29 @@ object-fit: cover;
 
 /*-------------*/
 
-iframe[src=""]{
-  display:none;
+#videoURL{
+  width: 100vw;
+  height: 90vh;
 }
-#pictureHD{
-  display: none;
+.videoURLModal{
+width:50vw;
+height:80vh;
 }
-.learn-more{
+.button-box-fixed {
   position: fixed;
-  bottom: 10px;
-  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 80%; /* Adjust the width as needed */
+  justify-content: space-between;
+  padding: 10px; /* Add padding to adjust spacing */
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
 }
-.add-fav{
-  position: fixed;
-  bottom:10px;
-  right:10px;
-  z-index: 1;
-  height:4rem;
+
+.add-fav-btn{
+  position: relative;
+  height:7rem;
 }
 .add-fav-modal{
   height:4rem;
@@ -92,7 +98,7 @@ iframe[src=""]{
   z-index: 1;
 }
 #pictureModal{
- max-height:50em;
+  max-height:50em;
   width: auto;
   margin: 0 auto;
 }
@@ -101,7 +107,21 @@ iframe[src=""]{
 }
 
 /*------------------------------Fav-----------------------------*/
-
+iframe[src=""]{
+  display:none;
+}
+img[src=""]{
+  display:none;
+}
+#favs{
+  background-color: #3a3a3a;
+}
+#favs h1 {
+  color:rgb(228, 228, 228);
+}
+#favs .card{
+  background-color: #b4b4b4;
+}
 .parent {
   position: relative;
 }
@@ -109,46 +129,34 @@ iframe[src=""]{
   max-width: 300px;
   max-height: 275px;
 }
-.cornerTL {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-}
-.cornerTR {
-  position: absolute;
-  top: 0%;
-  transform: translate(-100%,0%) rotate(90deg);
-}
-.cornerBL{
-  position: absolute;
-  top: 100%;
-  transform: translate(-100%, -100%) ;
-  /* border: 3px blue solid; */
-}
-.cornerBR{
-  position: absolute;
-  top: 100%;
-  left:0%;
-  transform: translate(0%,-100%) rotate(-90deg);
-  /* border: 3px palegreen solid; */
-}
-.corner, .more-info {
-  max-width: 3em;
-} 
 
 
 /*-------------------------Past-------------------------------*/
-.past-search{
+/* .past-search{
 overflow: hidden;
-}
+} */
 .search-window{
   min-height:100vh;
-  position: relative;
-  top:40vh;
+  padding-top:40vh;
+  background-image: url("https://unsplash.com/photos/the-night-sky-is-filled-with-stars-Ef6iL87-vOA");
+  background-color: #3a3a3a;
 }
+
+.search-window h1, span, .past-btn{
+  color:rgb(236, 234, 234);
+}
+.past-info{
+  background-color: white;
+  border-radius: 25px;
+}
+
 
 .past-picture, .past-picture-hd{
   max-height: 75vh;
+}
+.past-iframe{
+  max-width: 90vh;
+  max-height: 80vh;
 }
 
 /*--------------------Media Query---------------------*/
@@ -167,7 +175,7 @@ overflow: hidden;
   }
   
   .telescope-img{
-    height:600px;
+    height:550px;
   }
   .book{
     z-index: 2;
@@ -178,11 +186,11 @@ overflow: hidden;
     z-index: 1;
   }
   .favorites-btn{
-    top:700px;
+    top:660px;
     left:700px;
   }
   .past-btn{
-    top:800px;
+    top:750px;
     left:950px;
   }
   .book:hover{
@@ -193,3 +201,33 @@ overflow: hidden;
 }
 
 
+/*----------------------------test-------------------------------*/
+
+.imgRestrict{
+	max-width: 300px;
+}
+.modalImg{
+  max-width: 50vw;
+  max-height: 75vh;
+}
+ .galleryImg:hover{
+transform: scale(1.1);
+ }
+ .galleryImg:active{
+  transform: rotate(10deg) ;
+ }
+.galleryGrid{
+  display: grid;
+  grid-template-rows:auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3em;
+  margin: 2em;
+  grid-auto-rows: auto;
+}
+.grid-item{
+  justify-self: center;
+  align-self: center;
+  display: block;
+  padding:1rem;
+  filter: drop-shadow(rgb(95, 95, 95) 0.5rem 0.5rem 1rem)
+  }

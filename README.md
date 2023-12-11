@@ -42,3 +42,14 @@ Past pictures will change to a tablet background, and tablet asset on the table
 
 Add search past pictures on the navbar
 
+Capstone 4 Challenges----------------------
+
+Getting the date to be put in the format for the api call was tricky.  The date kept coming in as a three letter repensentation of the month.
+
+I scrapped the book idea for this version of the site.  With tremdous help it is working, but it's not my code enough for me to submit it as part of the assignment and a solution for the mobile version hasn't been worked out yet.  I used the code from my interactive gallery and modified it for this assignment.
+
+I still haven't figured out how to keep the top portion non-scrollable and the bottom half to do so with hard coded HTML for the past images page.  It seems like a innerHTML code may be the solution.  
+
+As of this version of the site, I have mutiple pages for HTML and JS, I will work on condensing it down, but right now it works.  I would rather loose marks for multiple pages than the site not working at all.  
+
+Other small things I want to change are fixing the postition of the favs button, replacing the "books" on the table and I am even looking in to lottie and want to add some of those.
